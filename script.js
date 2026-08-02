@@ -21,8 +21,9 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 const roles = [
   'Software Developer',
   'B.Tech CSE Student',
-  'ML Enthusiast',
-  'APK Analyst'
+  'ML & Gen AI Enthusiast',
+  'APK Analyst',
+  'Software Engineering Intern'
 ];
 
 let roleIndex = 0;
