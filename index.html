@@ -1,452 +1,605 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manish Kumar Saini | Portfolio</title>
+  <title>Manish Kumar Saini | Software Developer &amp; AI Engineer</title>
+  <meta name="description" content="Portfolio of Manish Kumar Saini — Software Developer and B.Tech CSE student at GEC Ajmer (CGPA 8.99). Building multi-agent AI systems, AI-powered Android apps and real-world web applications." />
+  <meta name="author" content="Manish Kumar Saini" />
+  <meta name="theme-color" content="#0d0d1a" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Manish Kumar Saini | Software Developer &amp; AI Engineer" />
+  <meta property="og:description" content="Multi-agent AI systems, AI-powered Android apps and real-world software. B.Tech CSE @ GEC Ajmer, CGPA 8.99." />
+  <meta property="og:image" content="WhatsApp%20Image%202026-04-08%20at%2022.22.51.jpeg" />
+  <meta property="og:locale" content="en_IN" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236c63ff'/%3E%3Cstop offset='1' stop-color='%2300d4aa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Verdana,sans-serif' font-size='30' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" />
+
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <script>
+    /* Apply saved theme before first paint to avoid a flash of the wrong theme */
+    (function () {
+      try {
+        var t = localStorage.getItem('mks-theme');
+        if (!t) {
+          t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"><span></span></div>
+
   <!-- Navigation -->
-  <nav id="navbar">
+  <nav id="navbar" aria-label="Primary">
     <div class="nav-container">
-      <a href="#home" class="nav-logo">MKS</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <a href="#home" class="nav-logo" aria-label="Manish Kumar Saini — back to top">MKS</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Switch to light theme" title="Toggle theme">
+          <i class="fa fa-sun" aria-hidden="true"></i>
+          <i class="fa fa-moon" aria-hidden="true"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <div class="hero-bg">
-      <div class="hero-shape shape-1"></div>
-      <div class="hero-shape shape-2"></div>
-      <div class="hero-shape shape-3"></div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-greeting">Hello, I'm</p>
-      <h1 class="hero-name">Manish Kumar Saini</h1>
-      <div class="hero-role">
-        <span class="role-text" id="role-text"></span><span class="cursor">|</span>
-      </div>
-      <p class="hero-sub">B.Tech CSE Student @ GEC Ajmer &nbsp;•&nbsp; CGPA: 8.99</p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="Manish_Kumar_Saini_Resume (1).pdf" class="btn btn-outline" download>
-          <i class="fa fa-download"></i> Resume
-        </a>
-      </div>
-      <div class="hero-socials">
-        <a href="mailto:sainimk4735@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
-        <a href="https://linkedin.com/in/manish-kumar-saini-7aa3b2288" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/manii-saini" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="tel:+919571483164" title="Phone"><i class="fa fa-phone"></i></a>
-      </div>
-    </div>
-    <a href="#about" class="scroll-down"><i class="fa fa-chevron-down"></i></a>
-  </section>
+  <main id="main">
 
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">About <span>Me</span></h2>
-      <div class="about-grid">
-        <div class="about-avatar">
-          <div class="avatar-ring">
-            <img src="WhatsApp Image 2026-04-08 at 22.22.51.jpeg" alt="Manish Kumar Saini" class="avatar-photo" />
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <div class="hero-shape shape-1"></div>
+        <div class="hero-shape shape-2"></div>
+        <div class="hero-shape shape-3"></div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Open to Software Developer Internships
+        </p>
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">Manish Kumar Saini</h1>
+        <div class="hero-role">
+          <span class="role-text" id="role-text"></span><span class="cursor" aria-hidden="true">|</span>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>8.99</strong>
+            <span>CGPA</span>
           </div>
-          <div class="about-location">
-            <i class="fa fa-map-marker-alt"></i> Dausa, Rajasthan
+          <div class="hero-stat">
+            <strong>3+</strong>
+            <span>Projects</span>
+          </div>
+          <div class="hero-stat">
+            <strong>2</strong>
+            <span>Internships</span>
           </div>
         </div>
-        <div class="about-text">
-          <p>
-            Results-driven B.Tech Computer Science student with a <strong>CGPA of 8.99</strong>, hands-on expertise in
-            software development, Data Structures &amp; Algorithms, Object-Oriented Programming, Machine Learning,
-            Deep Learning, and Generative AI.
-          </p>
-          <p>
-            I have experience in reverse engineering, static analysis, and building real-world applications —
-            from industrial web apps and AI-powered Android apps to Gen AI solutions with RAG and LLMs. I'm seeking a
-            <strong>software developer internship</strong> where I can apply my problem-solving skills and deliver
-            high-quality, scalable solutions in an agile development environment.
-          </p>
-          <div class="about-tags">
-            <span><i class="fa fa-code"></i> Software Developer</span>
-            <span><i class="fa fa-brain"></i> ML Enthusiast</span>
-            <span><i class="fa fa-shield-alt"></i> APK Analyst</span>
-            <span><i class="fa fa-cricket-ball"></i> Cricket Fan</span>
-          </div>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary"><i class="fa fa-code" aria-hidden="true"></i> View Projects</a>
+          <a href="Manish_Kumar_Saini_new_software_Resume.pdf" class="btn btn-outline" download>
+            <i class="fa fa-download" aria-hidden="true"></i> Resume
+          </a>
+        </div>
+        <div class="hero-socials">
+          <a href="mailto:sainimk4735@gmail.com" title="Email" aria-label="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+          <a href="https://linkedin.com/in/manish-kumar-saini-7aa3b2288" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+          <a href="https://github.com/manii-saini" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+          <a href="https://leetcode.com/u/manii_9571" target="_blank" rel="noopener noreferrer" title="LeetCode" aria-label="LeetCode"><i class="fa fa-code" aria-hidden="true"></i></a>
+          <a href="tel:+919571483164" title="Phone" aria-label="Phone"><i class="fa fa-phone" aria-hidden="true"></i></a>
         </div>
       </div>
-    </div>
-  </section>
+      <a href="#about" class="scroll-down" aria-label="Scroll to About section"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+    </section>
 
-  <!-- Skills -->
-  <section id="skills" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">Technical <span>Skills</span></h2>
-      <div class="skills-grid">
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa fa-terminal"></i></div>
-          <h3>Languages</h3>
-          <div class="skill-tags">
-            <span>C</span><span>C++</span><span>Java</span><span>Python</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa fa-sitemap"></i></div>
-          <h3>Core CS</h3>
-          <div class="skill-tags">
-            <span>DSA</span><span>OOP</span><span>SDLC</span><span>Multithreading</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa fa-robot"></i></div>
-          <h3>Machine Learning</h3>
-          <div class="skill-tags">
-            <span>Supervised Learning</span><span>Unsupervised Learning</span><span>Reinforcement Learning</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa fa-brain"></i></div>
-          <h3>Deep Learning</h3>
-          <div class="skill-tags">
-            <span>Neuron</span><span>Perceptron</span><span>Propagation</span><span>Hyperparameter Tuning</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa fa-comments"></i></div>
-          <h3>Generative AI</h3>
-          <div class="skill-tags">
-            <span>RAG</span><span>LLM</span><span>NLP</span><span>LangChain</span>
-            <span>Open &amp; Closed-Source Models</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa fa-magic"></i></div>
-          <h3>AI Tools</h3>
-          <div class="skill-tags">
-            <span>Claude AI</span><span>Claude Code</span><span>OpenCode</span><span>ChatGPT</span>
-            <span>Gemini</span><span>Manus</span><span>NotebookLM</span><span>Google AI Studio</span><span>Google Labs</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa fa-cubes"></i></div>
-          <h3>Containerization</h3>
-          <div class="skill-tags">
-            <span>Docker</span><span>Kubernetes</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa fa-database"></i></div>
-          <h3>Database &amp; DBMS</h3>
-          <div class="skill-tags">
-            <span>MySQL</span><span>SQL Queries</span><span>CRUD</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa fa-network-wired"></i></div>
-          <h3>Networks</h3>
-          <div class="skill-tags">
-            <span>Computer Networks</span><span>TCP/IP</span><span>HTTP/HTTPS</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa fa-desktop"></i></div>
-          <h3>Operating Systems</h3>
-          <div class="skill-tags">
-            <span>Windows</span><span>Linux/Ubuntu</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa fa-bug"></i></div>
-          <h3>Profiling &amp; Debugging</h3>
-          <div class="skill-tags">
-            <span>Boost Graph</span><span>Flame Graph</span><span>Sanitizer</span><span>Valgrind</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa fa-tools"></i></div>
-          <h3>Tools</h3>
-          <div class="skill-tags">
-            <span>Git</span><span>GitHub</span><span>VS Code</span><span>Jupyter</span>
-            <span>Google Colab</span><span>Apktool</span><span>JADX</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title">My <span>Projects</span></h2>
-      <div class="projects-grid">
-
-        <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon"><i class="fa fa-wrench"></i></div>
-            <div class="project-links">
-              <a href="http://127.0.0.1:5501/main.html"
-                 target="_blank" title="Live Demo"><i class="fa fa-external-link-alt"></i></a>
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About <span>Me</span></h2>
+        <div class="about-grid">
+          <div class="about-avatar">
+            <div class="avatar-ring">
+              <img src="WhatsApp Image 2026-04-08 at 22.22.51.jpeg" alt="Portrait of Manish Kumar Saini" class="avatar-photo" width="160" height="160" loading="lazy" />
+            </div>
+            <div class="about-location">
+              <i class="fa fa-map-marker-alt" aria-hidden="true"></i> Dausa, Rajasthan
+            </div>
+            <div class="about-social-mini">
+              <a href="https://linkedin.com/in/manish-kumar-saini-7aa3b2288" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+              <a href="https://github.com/manii-saini" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+              <a href="https://leetcode.com/u/manii_9571" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><i class="fa fa-code" aria-hidden="true"></i></a>
             </div>
           </div>
-          <h3>Manish Motor Winding</h3>
-          <p class="project-subtitle">Service Website</p>
-          <p class="project-desc">
-            Full-stack service web platform enabling users to browse motor services, book products,
-            and submit repair requests online with real-time inventory management.
-          </p>
-          <ul class="project-highlights">
-            <li>CRUD operations with MySQL for inventory &amp; booking</li>
-            <li>Responsive UI with HTML &amp; CSS</li>
-            <li>Backend powered by Python</li>
-          </ul>
-          <div class="project-stack">
-            <span>Python</span><span>HTML</span><span>CSS</span><span>MySQL</span>
-          </div>
-        </div>
+          <div class="about-text">
+            <p>
+              Results-driven B.Tech Computer Science student with a <strong>CGPA of 8.99</strong>, hands-on expertise in
+              software development, Data Structures &amp; Algorithms, Object-Oriented Programming, Machine Learning,
+              Deep Learning, and Generative AI.
+            </p>
+            <p>
+              Experienced in reverse engineering, static analysis, and building real-world applications — from industrial
+              web apps and AI-powered Android apps to Gen AI solutions with RAG, LLMs and multi-agent systems. Seeking a
+              <strong>software developer internship</strong> to apply problem-solving skills and deliver high-quality,
+              scalable solutions in an agile development environment.
+            </p>
 
-        <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon"><i class="fa fa-camera"></i></div>
-            <div class="project-links">
-              <a href="https://play.google.com/store/apps/details?id=com.smartscanai.app"
-                 target="_blank" title="Google Play Store"><i class="fab fa-google-play"></i></a>
+            <div class="about-facts">
+              <div class="fact-card">
+                <span class="fact-icon"><i class="fa fa-language" aria-hidden="true"></i></span>
+                <div>
+                  <h4>Languages</h4>
+                  <p>Hindi, English</p>
+                </div>
+              </div>
+              <div class="fact-card">
+                <span class="fact-icon"><i class="fa fa-futbol" aria-hidden="true"></i></span>
+                <div>
+                  <h4>Hobbies</h4>
+                  <p>Cricket, Exploring New Technologies</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-tags">
+              <span><i class="fa fa-code" aria-hidden="true"></i> Software Developer</span>
+              <span><i class="fa fa-brain" aria-hidden="true"></i> ML &amp; Gen AI Enthusiast</span>
+              <span><i class="fa fa-shield-alt" aria-hidden="true"></i> APK Analyst</span>
+              <span><i class="fa fa-robot" aria-hidden="true"></i> Agentic AI</span>
             </div>
           </div>
-          <h3>SmartScan AI</h3>
-          <p class="project-subtitle">AI-Powered Android App</p>
-          <p class="project-desc">
-            Android application built with Java and the Camera2 API that captures and scans real-world
-            objects in real-time, then delivers detailed AI-generated descriptions via the OpenAI Vision API.
-            Available on the Google Play Store.
-          </p>
-          <ul class="project-highlights">
-            <li>Camera2 API for real-time image capture &amp; scanning</li>
-            <li>OpenAI Vision API integration via REST with JSON parsing</li>
-            <li>Efficient image processing &amp; async API communication</li>
-          </ul>
-          <div class="project-stack">
-            <span>Java</span><span>Android</span><span>OpenAI Vision API</span><span>Camera2</span><span>REST API</span>
-          </div>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Experience -->
-  <section id="experience" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">Work <span>Experience</span></h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-meta">
-              <span class="timeline-date"><i class="fa fa-calendar"></i> May 2026 – Jun 2026 (45 Days)</span>
-              <span class="timeline-badge">Internship</span>
+    <!-- Skills -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Technical <span>Skills</span></h2>
+        <div class="skills-grid">
+
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fa fa-terminal" aria-hidden="true"></i></div>
+            <h3>Languages</h3>
+            <div class="skill-tags">
+              <span>C</span><span>C++</span><span>Java</span><span>Python</span>
             </div>
-            <h3>Software Engineering Intern</h3>
-            <p class="timeline-org"><i class="fa fa-building"></i> JRS Innovation Solutions Inc, Jaipur</p>
-            <ul class="timeline-points">
-              <li>Contributed to the development of industrial web applications for the <strong>Shift Logbook</strong> and <strong>Predictive Maintenance</strong> modules.</li>
-              <li>Developed responsive web pages, resolved UI and functionality issues, and collaborated with the team to enhance performance and user experience.</li>
-              <li>Supported backend functionality and debugging for an ongoing <strong>Android application</strong>, and participated in an <strong>Issue Tracker</strong> project using Git and GitHub.</li>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fa fa-sitemap" aria-hidden="true"></i></div>
+            <h3>Core CS</h3>
+            <div class="skill-tags">
+              <span>DSA</span><span>OOP</span><span>SDLC</span><span>Multithreading</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fa fa-robot" aria-hidden="true"></i></div>
+            <h3>Machine Learning</h3>
+            <div class="skill-tags">
+              <span>Supervised Learning</span><span>Unsupervised Learning</span><span>Reinforcement Learning</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fa fa-brain" aria-hidden="true"></i></div>
+            <h3>Deep Learning</h3>
+            <div class="skill-tags">
+              <span>Neuron</span><span>Perceptron</span><span>Propagation</span><span>Hyperparameter Tuning</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fa fa-comments" aria-hidden="true"></i></div>
+            <h3>Generative AI &amp; Agentic AI</h3>
+            <div class="skill-tags">
+              <span>RAG</span><span>LLM</span><span>NLP</span><span>LangChain</span><span>LangGraph</span>
+              <span>MCP</span><span>API</span><span>AI Agents</span><span>Agentic AI</span>
+              <span>Open &amp; Closed-Source Models</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fa fa-magic" aria-hidden="true"></i></div>
+            <h3>AI Tools</h3>
+            <div class="skill-tags">
+              <span>Claude AI</span><span>Claude Code</span><span>OpenCode</span><span>ChatGPT</span>
+              <span>Gemini</span><span>Manus</span><span>NotebookLM</span><span>Google AI Studio</span><span>Google Labs</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fa fa-cubes" aria-hidden="true"></i></div>
+            <h3>Containerization</h3>
+            <div class="skill-tags">
+              <span>Docker</span><span>Kubernetes</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fa fa-database" aria-hidden="true"></i></div>
+            <h3>Database &amp; DBMS</h3>
+            <div class="skill-tags">
+              <span>MySQL</span><span>PostgreSQL</span><span>SQL Queries</span><span>CRUD</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fa fa-network-wired" aria-hidden="true"></i></div>
+            <h3>Networks</h3>
+            <div class="skill-tags">
+              <span>Computer Networks</span><span>TCP/IP</span><span>HTTP/HTTPS</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fa fa-desktop" aria-hidden="true"></i></div>
+            <h3>Operating Systems</h3>
+            <div class="skill-tags">
+              <span>Windows</span><span>Linux/Ubuntu</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fa fa-bug" aria-hidden="true"></i></div>
+            <h3>Profiling &amp; Debugging</h3>
+            <div class="skill-tags">
+              <span>Boost Graph</span><span>Flame Graph</span><span>Sanitizer</span><span>Valgrind</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fa fa-tools" aria-hidden="true"></i></div>
+            <h3>Tools</h3>
+            <div class="skill-tags">
+              <span>Git</span><span>GitHub</span><span>VS Code</span><span>Jupyter</span>
+              <span>Google Colab</span><span>Apktool</span><span>JADX</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">My <span>Projects</span></h2>
+        <div class="projects-grid">
+
+          <div class="project-card featured">
+            <div class="project-header">
+              <div class="project-icon"><i class="fa fa-flask" aria-hidden="true"></i></div>
+              <div class="project-links">
+                <a href="https://research-agent-system.streamlit.app"
+                   target="_blank" rel="noopener noreferrer" title="Live Demo" aria-label="ResearchMind live demo"><i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <span class="badge-featured"><i class="fa fa-star" aria-hidden="true"></i> Featured</span>
+            <h3>ResearchMind</h3>
+            <p class="project-subtitle">Multi-Agent AI Research System</p>
+            <p class="project-desc">
+              A multi-agent AI research assistant that automates web research and generates structured
+              research reports.
+            </p>
+            <ul class="project-highlights">
+              <li>Tavily web search paired with BeautifulSoup for scraping and cleaning relevant page content</li>
+              <li>Writer &amp; Critic chains built with LangChain and the OpenAI API to generate, evaluate and iteratively improve reports</li>
+              <li>Sequential LCEL workflow combining search, content extraction, report generation and evaluation</li>
             </ul>
-            <div class="timeline-tech">
-              <span>Web Development</span><span>Android</span><span>Debugging</span><span>Git</span><span>GitHub</span>
+            <div class="project-footer">
+              <div class="project-stack">
+                <span>Python</span><span>LangChain</span><span>OpenAI API</span><span>Tavily API</span>
+                <span>BeautifulSoup</span><span>LCEL</span>
+              </div>
+              <a class="project-cta" href="https://research-agent-system.streamlit.app" target="_blank" rel="noopener noreferrer">
+                Live Demo <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              </a>
             </div>
           </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-meta">
-              <span class="timeline-date"><i class="fa fa-calendar"></i> Feb 2026 – Mar 2026 (2 Months)</span>
-              <span class="timeline-badge">Research Intern</span>
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon"><i class="fa fa-camera" aria-hidden="true"></i></div>
+              <div class="project-links">
+                <a href="https://play.google.com/store/apps/details?id=com.smartscanai.app"
+                   target="_blank" rel="noopener noreferrer" title="Google Play Store" aria-label="SmartScan AI on Google Play"><i class="fab fa-google-play" aria-hidden="true"></i></a>
+              </div>
             </div>
-            <h3>UAV Android APK Deobfuscation Framework</h3>
-            <p class="timeline-org"><i class="fa fa-university"></i> Government Engineering College, Ajmer (GEC Ajmer)</p>
-            <ul class="timeline-points">
-              <li>Developed an <strong>SMT-based framework</strong> for deobfuscating UAV Android APKs by modeling obfuscated control flow as constraint systems and simplifying them with the <strong>Z3 SMT Solver</strong>, integrating <strong>Androguard</strong> and <strong>Triton</strong> for static and symbolic analysis.</li>
-              <li>Designed the system for <strong>pattern-independent deobfuscation</strong> of unseen obfuscation techniques while preserving UAV-specific operational semantics.</li>
-              <li>Contributed to an APK analysis tool that extracts permissions, detects obfuscation techniques like <strong>control flow flattening</strong> and renaming, and generates structured inspection reports.</li>
+            <h3>SmartScan AI</h3>
+            <p class="project-subtitle">AI-Powered Android App</p>
+            <p class="project-desc">
+              Android application built with Java and the Camera2 API that captures and scans real-world
+              objects in real-time, then delivers detailed AI-generated descriptions via the OpenAI Vision API.
+              Available on the Google Play Store.
+            </p>
+            <ul class="project-highlights">
+              <li>Camera2 API for real-time image capture &amp; scanning</li>
+              <li>OpenAI Vision API integration via REST API with JSON parsing</li>
+              <li>Efficient image processing and asynchronous API communication for smooth real-time UX</li>
             </ul>
-            <div class="timeline-tech">
-              <span>Androguard</span><span>Triton</span><span>Z3 SMT Solver</span><span>Apktool</span><span>JADX</span><span>Static &amp; Symbolic Analysis</span>
+            <div class="project-footer">
+              <div class="project-stack">
+                <span>Java</span><span>Android</span><span>OpenAI Vision API</span><span>Camera2 API</span><span>REST API</span>
+              </div>
+              <a class="project-cta" href="https://play.google.com/store/apps/details?id=com.smartscanai.app" target="_blank" rel="noopener noreferrer">
+                Play Store <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
+              <div class="project-links">
+                <span class="badge-private"><i class="fa fa-lock" aria-hidden="true"></i> Private</span>
+              </div>
+            </div>
+            <h3>AI Travel Planning System</h3>
+            <p class="project-subtitle">Multi-Agent AI Application</p>
+            <p class="project-desc">
+              A real-world multi-agent AI system that automatically generates complete, budget-constrained travel
+              plans. Four specialized agents (Flight Search, Hotel Search, Itinerary, and Final Response) are
+              orchestrated as a LangGraph workflow, backed by PostgreSQL conversation memory with an interactive
+              Streamlit interface to generate and download itineraries.
+            </p>
+            <ul class="project-highlights">
+              <li>LangGraph workflow coordinating 4 specialized AI agents with agent-to-agent collaboration</li>
+              <li>Real-time flight &amp; hotel data via AviationStack and Tavily APIs</li>
+              <li>Groq-hosted Llama 3.3 70B with PostgreSQL-based memory for contextual multi-turn planning</li>
+            </ul>
+            <div class="project-footer">
+              <div class="project-stack">
+                <span>LangGraph</span><span>LangChain</span><span>Groq</span><span>Llama 3.3 70B</span><span>PostgreSQL</span><span>Streamlit</span><span>Tavily API</span><span>AviationStack API</span><span>Python</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Work <span>Experience</span></h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-date"><i class="fa fa-calendar" aria-hidden="true"></i> May 2026 – Jun 2026 (45 Days)</span>
+                <span class="timeline-badge">Internship</span>
+              </div>
+              <h3>Software Engineering Intern</h3>
+              <p class="timeline-org"><i class="fa fa-building" aria-hidden="true"></i> JRS Innovation Solutions Inc, Jaipur</p>
+              <ul class="timeline-points">
+                <li>Contributed to the development of industrial web applications for the <strong>Shift Logbook</strong> and <strong>Predictive Maintenance</strong> modules.</li>
+                <li>Developed responsive web pages, resolved UI and functionality issues, and collaborated with the team to enhance performance and user experience.</li>
+                <li>Supported backend functionality and debugging for an ongoing <strong>Android application</strong>, and participated in an <strong>Issue Tracker</strong> project using Git and GitHub.</li>
+              </ul>
+              <div class="timeline-tech">
+                <span>Web Development</span><span>Android</span><span>Debugging</span><span>Git</span><span>GitHub</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-date"><i class="fa fa-calendar" aria-hidden="true"></i> Feb 2026 – Mar 2026 (2 Months)</span>
+                <span class="timeline-badge">Research Intern</span>
+              </div>
+              <h3>UAV Android APK Deobfuscation Framework</h3>
+              <p class="timeline-org"><i class="fa fa-university" aria-hidden="true"></i> Government Engineering College, Ajmer (GEC Ajmer)</p>
+              <ul class="timeline-points">
+                <li>Developed an <strong>SMT-based framework</strong> for deobfuscating UAV Android APKs by modeling obfuscated control flow as constraint systems and simplifying them with the <strong>Z3 SMT Solver</strong>, integrating <strong>Androguard</strong> and <strong>Triton</strong> for static and symbolic analysis.</li>
+                <li>Designed the system for <strong>pattern-independent deobfuscation</strong> of unseen obfuscation techniques while preserving UAV-specific operational semantics.</li>
+                <li>Contributed to an APK analysis tool that extracts permissions, detects obfuscation techniques such as <strong>control flow flattening</strong> and renaming, and generates structured inspection reports.</li>
+              </ul>
+              <div class="timeline-tech">
+                <span>Androguard</span><span>Triton</span><span>Z3 SMT Solver</span><span>Apktool</span><span>JADX</span><span>Static &amp; Symbolic Analysis</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Education -->
-  <section id="education" class="section">
-    <div class="container">
-      <h2 class="section-title">My <span>Education</span></h2>
-      <div class="edu-grid">
+    <!-- Education -->
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">My <span>Education</span></h2>
+        <div class="edu-grid">
 
-        <div class="edu-card active">
-          <div class="edu-icon"><i class="fa fa-graduation-cap"></i></div>
-          <div class="edu-info">
-            <h3>B.Tech – Computer Science &amp; Engineering</h3>
-            <p class="edu-institution">Government Engineering College, Ajmer (GEC Ajmer)</p>
-            <div class="edu-meta">
-              <span><i class="fa fa-calendar"></i> 2023 – 2027 (Expected)</span>
-              <span class="edu-score highlight"><i class="fa fa-star"></i> CGPA: 8.99 / 10</span>
+          <div class="edu-card active">
+            <div class="edu-icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
+            <div class="edu-info">
+              <h3>B.Tech – Computer Science &amp; Engineering</h3>
+              <p class="edu-institution">Government Engineering College, Ajmer (GEC Ajmer)</p>
+              <div class="edu-meta">
+                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023 – 2027 (Expected)</span>
+                <span class="edu-score highlight"><i class="fa fa-star" aria-hidden="true"></i> CGPA: 8.99 / 10</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-icon"><i class="fa fa-school" aria-hidden="true"></i></div>
+            <div class="edu-info">
+              <h3>Senior Secondary (12th)</h3>
+              <p class="edu-institution">Jyotiba Phule Adaresh VM Sr. Sec. School</p>
+              <div class="edu-meta">
+                <span class="edu-score"><i class="fa fa-percent" aria-hidden="true"></i> 83%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-icon"><i class="fa fa-book" aria-hidden="true"></i></div>
+            <div class="edu-info">
+              <h3>Secondary (10th)</h3>
+              <p class="edu-institution">Govt. Var. Upd. School</p>
+              <div class="edu-meta">
+                <span class="edu-score"><i class="fa fa-percent" aria-hidden="true"></i> 63%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Certifications -->
+        <h3 class="sub-title">Certifications</h3>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <i class="fa fa-certificate" aria-hidden="true"></i>
+            <div>
+              <h4>C</h4>
+              <p>Aptech Coaching Center, Ajmer</p>
+            </div>
+          </div>
+          <div class="cert-card">
+            <i class="fa fa-certificate" aria-hidden="true"></i>
+            <div>
+              <h4>Java</h4>
+              <p>Programming Express Coaching Center, Ajmer</p>
             </div>
           </div>
         </div>
 
-        <div class="edu-card">
-          <div class="edu-icon"><i class="fa fa-school"></i></div>
-          <div class="edu-info">
-            <h3>Senior Secondary (12th)</h3>
-            <p class="edu-institution">Jyotiba Phule Adaresh VM Sr. Sec. School</p>
-            <div class="edu-meta">
-              <span class="edu-score"><i class="fa fa-percent"></i> 83%</span>
+        <!-- Intern Certifications -->
+        <h3 class="sub-title">Intern Certifications</h3>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <i class="fa fa-briefcase" aria-hidden="true"></i>
+            <div>
+              <h4>Software Engineering Intern</h4>
+              <p>JRS Innovation Solutions Inc, Jaipur</p>
+            </div>
+          </div>
+          <div class="cert-card">
+            <i class="fa fa-file-code" aria-hidden="true"></i>
+            <div>
+              <h4>Java Assessment Test</h4>
+              <p>Infotact Solutions</p>
             </div>
           </div>
         </div>
 
-        <div class="edu-card">
-          <div class="edu-icon"><i class="fa fa-book"></i></div>
-          <div class="edu-info">
-            <h3>Secondary (10th)</h3>
-            <p class="edu-institution">Govt. Var. Upd. School</p>
-            <div class="edu-meta">
-              <span class="edu-score"><i class="fa fa-percent"></i> 63%</span>
+        <!-- Competitive Coding -->
+        <h3 class="sub-title">Competitive Coding</h3>
+        <div class="cert-grid">
+          <a class="cert-card" href="https://leetcode.com/u/manii_9571" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-code" aria-hidden="true"></i>
+            <div>
+              <h4>LeetCode — manii_9571</h4>
+              <p>Solved DSA problems across Arrays, Strings, Linked Lists, Trees &amp; Dynamic Programming</p>
             </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Certifications -->
-      <h3 class="sub-title">Certifications</h3>
-      <div class="cert-grid">
-        <div class="cert-card">
-          <i class="fa fa-certificate"></i>
-          <div>
-            <h4>Software Engineering Intern</h4>
-            <p>JRS Innovation Solutions Inc, Jaipur</p>
-          </div>
-        </div>
-        <div class="cert-card">
-          <i class="fa fa-certificate"></i>
-          <div>
-            <h4>C &amp; C++</h4>
-            <p>Aptech Coaching Center, Ajmer</p>
-          </div>
-        </div>
-        <div class="cert-card">
-          <i class="fa fa-certificate"></i>
-          <div>
-            <h4>Java &amp; Python</h4>
-            <p>Programming Express Coaching Center, Ajmer</p>
-          </div>
+            <i class="fa fa-arrow-right cert-arrow" aria-hidden="true"></i>
+          </a>
         </div>
       </div>
+    </section>
 
-      <!-- Competitive Coding -->
-      <h3 class="sub-title">Competitive Coding</h3>
-      <div class="cert-grid">
-        <a class="cert-card" href="https://leetcode.com/u/manii_9571" target="_blank" style="text-decoration:none">
-          <i class="fa fa-code"></i>
-          <div>
-            <h4>LeetCode — manii_9571</h4>
-            <p>Solved DSA problems across Arrays, Strings, Linked Lists, Trees &amp; Dynamic Programming</p>
-          </div>
-        </a>
+    <!-- Contact -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+        <p class="contact-intro">
+          I'm actively looking for software developer internship opportunities.
+          Feel free to reach out — I'd love to connect!
+        </p>
+        <div class="contact-actions">
+          <a href="mailto:sainimk4735@gmail.com" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send an Email</a>
+          <button type="button" class="btn btn-outline" id="copy-email"><i class="fa fa-copy" aria-hidden="true"></i> <span>Copy Email</span></button>
+          <a href="Manish_Kumar_Saini_new_software_Resume.pdf" class="btn btn-ghost" download><i class="fa fa-download" aria-hidden="true"></i> Download Resume</a>
+        </div>
+        <div class="contact-grid">
+          <a class="contact-card" href="mailto:sainimk4735@gmail.com">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <div>
+              <h4>Email</h4>
+              <p>sainimk4735@gmail.com</p>
+            </div>
+          </a>
+          <a class="contact-card" href="tel:+919571483164">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <div>
+              <h4>Phone</h4>
+              <p>+91-9571483164</p>
+            </div>
+          </a>
+          <a class="contact-card" href="https://linkedin.com/in/manish-kumar-saini-7aa3b2288" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+            <div>
+              <h4>LinkedIn</h4>
+              <p>manish-kumar-saini</p>
+            </div>
+          </a>
+          <a class="contact-card" href="https://github.com/manii-saini" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github" aria-hidden="true"></i>
+            <div>
+              <h4>GitHub</h4>
+              <p>manii-saini</p>
+            </div>
+          </a>
+          <a class="contact-card" href="https://leetcode.com/u/manii_9571" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-code" aria-hidden="true"></i>
+            <div>
+              <h4>LeetCode</h4>
+              <p>manii_9571</p>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">Get In <span>Touch</span></h2>
-      <p class="contact-intro">
-        I'm actively looking for software developer internship opportunities.
-        Feel free to reach out — I'd love to connect!
-      </p>
-      <div class="contact-grid">
-        <a class="contact-card" href="mailto:sainimk4735@gmail.com">
-          <i class="fa fa-envelope"></i>
-          <div>
-            <h4>Email</h4>
-            <p>sainimk4735@gmail.com</p>
-          </div>
-        </a>
-        <a class="contact-card" href="tel:+919571483164">
-          <i class="fa fa-phone"></i>
-          <div>
-            <h4>Phone</h4>
-            <p>+91-9571483164</p>
-          </div>
-        </a>
-        <a class="contact-card" href="https://linkedin.com/in/manish-kumar-saini-7aa3b2288" target="_blank">
-          <i class="fab fa-linkedin"></i>
-          <div>
-            <h4>LinkedIn</h4>
-            <p>manish-kumar-saini</p>
-          </div>
-        </a>
-        <a class="contact-card" href="https://github.com/manii-saini" target="_blank">
-          <i class="fab fa-github"></i>
-          <div>
-            <h4>GitHub</h4>
-            <p>manii-saini</p>
-          </div>
-        </a>
-        <a class="contact-card" href="https://leetcode.com/u/manii_9571" target="_blank">
-          <i class="fa fa-code"></i>
-          <div>
-            <h4>LeetCode</h4>
-            <p>manii_9571</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>Designed &amp; Built by <strong>Manish Kumar Saini</strong></p>
+      <a href="#home" class="footer-logo" aria-label="Back to top">MKS</a>
+      <p class="footer-text">Designed &amp; Built by <strong>Manish Kumar Saini</strong></p>
       <p class="footer-sub">B.Tech CSE Student | GEC Ajmer | 2026</p>
+      <div class="footer-socials">
+        <a href="mailto:sainimk4735@gmail.com" aria-label="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+        <a href="https://linkedin.com/in/manish-kumar-saini-7aa3b2288" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://github.com/manii-saini" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+        <a href="https://leetcode.com/u/manii_9571" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><i class="fa fa-code" aria-hidden="true"></i></a>
+      </div>
     </div>
   </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  </button>
 
   <script src="script.js"></script>
 </body>
